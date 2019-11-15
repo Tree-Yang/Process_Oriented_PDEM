@@ -153,7 +153,7 @@ function [tm, rm, prob] = PDEM_solve(asgn_prob, d, v, t, dt, thres)
                         r21 = (prob0(jj+1, kk)-prob0(jj, kk))/(prob0(jj, kk));
                     end
                 else
-                    if prob0(jj, kk) == 0
+                    if prob0(jj, kk) == prob0(jj-1, kk)
                         r21 = 1;
                     else
                         r21 = (prob0(jj+1, kk)-prob0(jj, kk))/(prob0(jj, kk)-prob0(jj-1, kk));
