@@ -106,26 +106,16 @@ function [tm, rm, prob] = PDEM_solve(asgn_prob, d, v, t, dt, thres)
 
     prob = zeros(size(tm));
     % for each of the representative point
-<<<<<<< HEAD
     parfor nn = 1:1:np
-=======
-    for nn = 1:1:np
->>>>>>> b35ad5f900b73d755594a9110a51fd4e81afefe5
         fprintf('Representative point:                  %15d/%6d.\n',nn,np);
         %initial condition
         prob0 = zeros(size(tm));
         %location of the initial response
-<<<<<<< HEAD
         grid_r1 = grid_r;
         bd_absorb1 = bd_absorb;
         n_ini = round(abs(d(1,nn)-bd_absorb1(1))/dr);
         prob0(n_ini+1, 1) = 1/dr;
         if d(1,nn) > bd_absorb1(2) || d(1,nn) < bd_absorb1(1)
-=======
-        n_ini = round(abs(d(1,nn)-bd_absorb(1))/dr);
-        prob0(n_ini+1, 1) = 1/dr;
-        if d(1,nn) > bd_absorb(2) || d(1,nn) < bd_absorb(1)
->>>>>>> b35ad5f900b73d755594a9110a51fd4e81afefe5
             error('The initial response is out of the mesh domain!');
         end
         %for each time step
@@ -240,11 +230,7 @@ function [tm, rm, prob] = PDEM_solve(asgn_prob, d, v, t, dt, thres)
                 prob0(jj, kk+1) = prob0(jj, kk) - 1/2*(tmp-abs(tmp))*d_prob_1...
                                                 - 1/2*(tmp+abs(tmp))*d_prob_2...
                                                 - 1/2*(abs(tmp)-tmp^2)*(phi1*d_prob_1-phi2*d_prob_2);
-<<<<<<< HEAD
                 if grid_r1(jj)>bd_absorb1(2) || grid_r1(jj)<bd_absorb1(1)
-=======
-                if grid_r(jj)>bd_absorb(2) || grid_r(jj)<bd_absorb(1)
->>>>>>> b35ad5f900b73d755594a9110a51fd4e81afefe5
                     prob0(jj, kk+1) = 0;
                 end
             end
