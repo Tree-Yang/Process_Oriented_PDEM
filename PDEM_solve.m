@@ -225,7 +225,7 @@ function [tm, rm, prob] = PDEM_solve(asgn_prob, d, v, t, dt, thres)
                 tmp      = mesh_ratio*a;
                 %check the CFL conditon
                 if abs(tmp) > 1
-                    warining('The CFL condition is not verified at current time step!')
+                    warning('The CFL condition is not verified at current time step!')
                 end
                 prob0(jj, kk+1) = prob0(jj, kk) - 1/2*(tmp-abs(tmp))*d_prob_1...
                                                 - 1/2*(tmp+abs(tmp))*d_prob_2...
