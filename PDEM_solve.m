@@ -147,7 +147,7 @@ function [tm, rm, prob] = PDEM_solve(asgn_prob, d, v, t, dt, dt_ratio, thres)
     % fprintf('The number of grid for time is             %15d.\n', length(grid_t));
 
     prob    = zeros(size(tm));
-    pdf_rps = zeros(length(rm(:, end)), np);
+    % pdf_rps = zeros(length(rm(:, end)), np);
     % for each of the representative point
     parfor nn = 1:np
         %---------------------------------------------
